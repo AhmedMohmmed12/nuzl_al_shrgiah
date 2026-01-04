@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light theme - Core palette - Light backgrounds with Gold accents */
+    --background: 220 30% 98%;
+    --foreground: 220 30% 10%;
+
+    --card: 220 25% 100%;
+    --card-foreground: 220 30% 10%;
+
+    --popover: 220 25% 100%;
+    --popover-foreground: 220 30% 10%;
+
+    /* Gold/Amber primary */
+    --primary: 38 92% 50%;
+    --primary-foreground: 220 30% 98%;
+
+    /* Sandy secondary */
+    --secondary: 35 25% 95%;
+    --secondary-foreground: 220 30% 10%;
+
+    --muted: 220 20% 96%;
+    --muted-foreground: 220 15% 40%;
+
+    /* Copper accent */
+    --accent: 25 85% 55%;
+    --accent-foreground: 220 30% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 20% 90%;
+    --input: 220 20% 90%;
+    --ring: 38 92% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --gold-gradient: linear-gradient(135deg, hsl(38 92% 50%) 0%, hsl(25 85% 55%) 50%, hsl(38 92% 50%) 100%);
+    --dark-gradient: linear-gradient(180deg, hsl(220 30% 98%) 0%, hsl(220 25% 95%) 100%);
+    --hero-gradient: linear-gradient(135deg, hsl(220 30% 96%) 0%, hsl(220 35% 98%) 50%, hsl(220 25% 95%) 100%);
+    --card-gradient: linear-gradient(145deg, hsl(220 25% 100%) 0%, hsl(220 25% 98%) 100%);
+    --glow-gold: 0 0 60px hsl(38 92% 50% / 0.2);
+    --glow-accent: 0 0 40px hsl(25 85% 55% / 0.15);
+    
+    /* Typography */
+    --font-display: 'Tajawal', sans-serif;
+    
+    /* Sidebar tokens */
+    --sidebar-background: 220 25% 98%;
+    --sidebar-foreground: 220 30% 10%;
+    --sidebar-primary: 38 92% 50%;
+    --sidebar-primary-foreground: 220 30% 98%;
+    --sidebar-accent: 220 20% 96%;
+    --sidebar-accent-foreground: 220 30% 10%;
+    --sidebar-border: 220 20% 90%;
+    --sidebar-ring: 38 92% 50%;
+  }
+
+  .dark {
+    /* Dark theme - Core palette - Deep Navy & Warm Gold */
+    --background: 220 30% 6%;
+    --foreground: 45 30% 95%;
+
+    --card: 220 25% 10%;
+    --card-foreground: 45 30% 95%;
+
+    --popover: 220 25% 10%;
+    --popover-foreground: 45 30% 95%;
+
+    /* Gold/Amber primary */
+    --primary: 38 92% 50%;
+    --primary-foreground: 220 30% 6%;
+
+    /* Sandy secondary */
+    --secondary: 35 25% 20%;
+    --secondary-foreground: 45 30% 95%;
+
+    --muted: 220 20% 15%;
+    --muted-foreground: 220 15% 60%;
+
+    /* Copper accent */
+    --accent: 25 85% 55%;
+    --accent-foreground: 220 30% 6%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 20% 18%;
+    --input: 220 20% 18%;
+    --ring: 38 92% 50%;
+
+    /* Custom tokens */
+    --gold-gradient: linear-gradient(135deg, hsl(38 92% 50%) 0%, hsl(25 85% 55%) 50%, hsl(38 92% 50%) 100%);
+    --dark-gradient: linear-gradient(180deg, hsl(220 30% 6%) 0%, hsl(220 25% 10%) 100%);
+    --hero-gradient: linear-gradient(135deg, hsl(220 30% 8%) 0%, hsl(220 35% 4%) 50%, hsl(220 25% 12%) 100%);
+    --card-gradient: linear-gradient(145deg, hsl(220 25% 12%) 0%, hsl(220 25% 8%) 100%);
+    --glow-gold: 0 0 60px hsl(38 92% 50% / 0.3);
+    --glow-accent: 0 0 40px hsl(25 85% 55% / 0.2);
+    
+    /* Sidebar tokens */
+    --sidebar-background: 220 25% 8%;
+    --sidebar-foreground: 45 30% 95%;
+    --sidebar-primary: 38 92% 50%;
+    --sidebar-primary-foreground: 220 30% 6%;
+    --sidebar-accent: 220 20% 15%;
+    --sidebar-accent-foreground: 45 30% 95%;
+    --sidebar-border: 220 20% 18%;
+    --sidebar-ring: 38 92% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    direction: rtl;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gold-gradient);
+  }
+
+  .bg-hero {
+    background: var(--hero-gradient);
+  }
+
+  .bg-card-gradient {
+    background: var(--card-gradient);
+  }
+
+  .gold-glow {
+    box-shadow: var(--glow-gold);
+  }
+
+  .accent-glow {
+    box-shadow: var(--glow-accent);
+  }
+
+  .border-gradient {
+    @apply relative;
+    background: var(--card-gradient);
+  }
+
+  .border-gradient::before {
+    content: '';
+    @apply absolute inset-0 rounded-xl;
+    padding: 1px;
+    background: var(--gold-gradient);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  .geometric-pattern {
+    background-image: 
+      linear-gradient(30deg, hsl(38 92% 50% / 0.03) 12%, transparent 12.5%, transparent 87%, hsl(38 92% 50% / 0.03) 87.5%),
+      linear-gradient(150deg, hsl(38 92% 50% / 0.03) 12%, transparent 12.5%, transparent 87%, hsl(38 92% 50% / 0.03) 87.5%),
+      linear-gradient(30deg, hsl(38 92% 50% / 0.03) 12%, transparent 12.5%, transparent 87%, hsl(38 92% 50% / 0.03) 87.5%),
+      linear-gradient(150deg, hsl(38 92% 50% / 0.03) 12%, transparent 12.5%, transparent 87%, hsl(38 92% 50% / 0.03) 87.5%);
+    background-size: 80px 140px;
+    background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+  }
+
+  .floating {
+    animation: floating 6s ease-in-out infinite;
+  }
+
+  .floating-delayed {
+    animation: floating 6s ease-in-out infinite;
+    animation-delay: -3s;
+  }
+}
+
+@layer utilities {
+  @keyframes floating {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.8s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.8s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.6s ease-out forwards;
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(38 92% 50% / 0.1) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+  }
+
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+}
