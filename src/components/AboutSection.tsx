@@ -46,7 +46,7 @@ const AboutSection = () => {
             
             {/* Floating Stats Card */}
             <div className="absolute -bottom-8 -left-8 bg-card-gradient border border-border rounded-2xl p-6 shadow-2xl gold-glow">
-              <div className="text-4xl font-black text-gradient mb-2">+15</div>
+              <div className="text-4xl font-black text-gradient mb-2">+20</div>
               <div className="text-sm text-muted-foreground">عاماً من الخبرة</div>
             </div>
 

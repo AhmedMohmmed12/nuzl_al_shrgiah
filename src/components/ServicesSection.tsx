@@ -7,6 +7,12 @@ import serviceDrilling from "@/assets/service-drilling.jpg";
 
 const services = [
   {
+    icon: Truck,
+    title: "بيع وتأجير المعدات الثقيلة",
+    description: "توفير وتأجير مولدات كهربائية ومعدات ثقيلة للمشاريع الإنشائية بأحدث التقنيات",
+    image: serviceEquipment,
+  },
+  {
     icon: Home,
     title: "مقاولات تشطيب المباني",
     description: "تنفيذ أعمال التشطيبات الداخلية والخارجية للمباني السكنية والتجارية بأعلى معايير الجودة",
@@ -29,12 +35,6 @@ const services = [
     title: "حفر الآبار الارتوازية",
     description: "خدمات حفر الآبار بمعدات حديثة وفريق متخصص ذو خبرة واسعة",
     image: serviceDrilling,
-  },
-  {
-    icon: Truck,
-    title: "بيع وتأجير المعدات الثقيلة",
-    description: "توفير وتأجير مولدات كهربائية ومعدات ثقيلة للمشاريع الإنشائية بأحدث التقنيات",
-    image: serviceEquipment,
   },
   {
     icon: Wrench,
