@@ -36,23 +36,15 @@ jobs:
         run: |
           if [ "${{ github.repository }}" == "${{ github.repository_owner }}/${{ github.repository_owner }}.github.io" ]; then
             echo "base=/" >> $GITHUB_OUTPUT
-            echo "Using root base path: /"
           else
             REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
             echo "base=/$REPO_NAME/" >> $GITHUB_OUTPUT
-            echo "Using repository base path: /$REPO_NAME/"
           fi
-
-      - name: Debug base path
-        run: |
-          echo "Base path will be: ${{ steps.base.outputs.base }}"
 
       - name: Build
         env:
           GITHUB_PAGES_BASE: ${{ steps.base.outputs.base }}
-        run: |
-          echo "Building with GITHUB_PAGES_BASE=$GITHUB_PAGES_BASE"
-          npm run build
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

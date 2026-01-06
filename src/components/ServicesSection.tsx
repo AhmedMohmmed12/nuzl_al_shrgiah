@@ -8,7 +8,7 @@ import serviceDrilling from "@/assets/service-drilling.jpg";
 const services = [
   {
     icon: Truck,
-    title: "بيع وتأجير المعدات الثقيلة",
+    title: "بيع وتأجير وصيانةالمولدات و المعدات الثقيلة",
     description: "توفير وتأجير مولدات كهربائية ومعدات ثقيلة للمشاريع الإنشائية بأحدث التقنيات",
     image: serviceEquipment,
   },
