@@ -5,8 +5,10 @@ import path from "path";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   // Base path for GitHub Pages deployment
-  // Set via environment variable GITHUB_PAGES_BASE or default to '/'
-  base: process.env.GITHUB_PAGES_BASE || "/",
+  // If GITHUB_PAGES_BASE is not set, we use the repo name for production
+  base: mode === 'production' 
+    ? (process.env.GITHUB_PAGES_BASE || "/nuzl_al_shrgiah/") 
+    : "/",
   server: {
     host: "::",
     port: 8080,
